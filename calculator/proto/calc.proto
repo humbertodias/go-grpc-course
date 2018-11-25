@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package calc;
+
+option go_package = "proto";
+
+message Operators{
+    int32 a = 1;
+    int32 b = 2;
+}
+message CalcRequest {
+    Operators operators = 1;
+}
+message CalcResponse {
+    int32 result = 1;
+}
+service CalculatorService{
+    // Unary
+    rpc Sum(CalcRequest) returns (CalcResponse){};
+}
+
